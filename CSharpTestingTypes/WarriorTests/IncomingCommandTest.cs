@@ -12,22 +12,32 @@ namespace WarriorTests
         {
             var sustenance = Substitute.ForPartsOf<Sustenance>();
             
-            sustenance.IncreaseEnergy(10);
+            sustenance.IncreaseEnergy();
 
-            sustenance.FoodLevel.Should().Be(10);
+            sustenance.EnergyLevel.Should().Be(10);
+        }
+        
+        [Fact]
+        public void DecreaseEnergy_Called_ExpectFoodLevelChanged()
+        {
+            var sustenance = Substitute.ForPartsOf<Sustenance>();
+            sustenance.IncreaseEnergy(20);
+            
+            sustenance.DecreaseEnergy();
+
+            sustenance.EnergyLevel.Should().Be(10);
         }
 
         [Fact]
-        public void SetSword_Called_ExpectSwardPropertySet()
+        public void SetBladeLength_Called_ExpectBladeLengthPropertySet()
         {
             var sustenance = Substitute.ForPartsOf<Sustenance>();
-            var sward = Substitute.For<ISward>();
             var knight = new Knight(sustenance);
+            var swordLength = 10;
             
-            // Pass in a stub:
-            knight.SetSword(sward);
+            knight.SetBladeLength(swordLength);
 
-            knight.Sward.Should().Be(sward);
+            knight.BladeLength.Should().Be(swordLength);
         }
     }
 }

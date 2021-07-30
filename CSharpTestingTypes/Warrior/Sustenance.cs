@@ -1,18 +1,41 @@
 namespace Warrior
 {
-    public class Sustenance
+    public abstract class Sustenance
     {
-        public int FoodLevel { get; set; }
-
-        public virtual int EnergyLevel()
+        public virtual int EnergyLevel { get; private set; }
+        private int ReserveEnergy = 3;
+        
+        // Incoming Command (has side effects)
+        // Test the side effect
+        public void IncreaseEnergy(int energy = 10)
         {
-            FoodLevel *= 10;
-            return FoodLevel;
+            EnergyLevel += energy;
         }
 
-        public void IncreaseEnergy(int food)
+        // Incoming Command (has side effects)
+        // Test the side effect
+        public void DecreaseEnergy(int energy = 2)
         {
-            FoodLevel += food;
+            EnergyLevel /= energy;
+        }
+
+        // Incoming Query (no side effect)
+        // Test the return value
+        public virtual int Endurance()
+        {
+            return EnergyLevel * 10;
+        }
+        
+        // Private Command Message (do not test):
+        private void IncreaseReserveEnergy()
+        {
+            ReserveEnergy += 1;
+        }
+
+        // Private Query Message (do not test):
+        private int SupplyReserveEnergy()
+        {
+            return ReserveEnergy;
         }
     }
 }
