@@ -6,6 +6,8 @@
 ### Command Message: 
 * Do not return anything, but change something with side-effects.
 
+**You can have both a command and a query in one method.**
+
 ---
 
 #### Incoming Query:
@@ -43,3 +45,46 @@
 | Outgoing | Don't Test   | Assert Message Sent        |
 
 \* *private methods*
+
+#### Examples (see repo for better examples)
+```csharp
+// Test that this returns 3
+public int IncomingQuery()
+{
+  return 1 + 2;
+}
+
+// Test the side effect
+// In this case, that 'ClassValue' has the value of 'value'.
+public void IncomingCommand(int value)
+{
+  ClassValue = value;
+}
+
+// Private, do not test
+private IncomingQueryPrivate() {
+  return 2 + 2;
+}
+
+// Private, do not test
+public void IncomingCommandPrivate(int value)
+{
+  AnotherValue = value;
+}
+
+// Do not test
+public OutgoingQuery()
+{
+  var localValue = OtherClass.value;
+
+  // There would be further message types, 
+  // but will not add for the sake of example.
+}
+
+// Test that this method has been called.
+// This would need to be mocked.
+public void OutgoingCommand(OtherClass otherClass) 
+{
+  otherClass.DoSomething();
+}
+```
