@@ -4,6 +4,8 @@ namespace Warrior
     {
         private readonly Sustenance sustenance;
 
+        public ISward Sward { get; set; }
+        
         public Knight(Sustenance sustenance)
         {
             this.sustenance = sustenance;
@@ -12,6 +14,11 @@ namespace Warrior
         public int StrengthLevel()
         {
             return sustenance.EnergyLevel();
+        }
+
+        public void SetSword(ISward sword)
+        {
+            Sward = sword;
         }
     }
 }

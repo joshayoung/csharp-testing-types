@@ -2,11 +2,17 @@ namespace Warrior
 {
     public class Sustenance
     {
-        private int foodLevel = 10;
+        public int FoodLevel { get; set; }
 
         public virtual int EnergyLevel()
         {
-            return foodLevel * 10;
+            FoodLevel *= 10;
+            return FoodLevel;
+        }
+
+        public void IncreaseEnergy(int food)
+        {
+            FoodLevel += food;
         }
     }
 }
