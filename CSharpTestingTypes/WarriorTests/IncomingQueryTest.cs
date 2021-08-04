@@ -17,7 +17,7 @@ namespace WarriorTests
         [Fact]
         public void HasSword_BladeLengthGreaterThanTen_ExpectReturnsTrue()
         {
-            var knight = new Knight(sustenance) {BladeLength = 11};
+            var knight = new Knight(sustenance) { BladeLength = 11 };
 
             var results = knight.HasSword();
 
@@ -46,7 +46,7 @@ namespace WarriorTests
         
         // Do not test the internal implementation
         // Changing the internal implementation will cause the test to fail
-        [Fact]
+        [Fact (Skip = "This test is bad practise, skipping for that reason.")]
         public void StrengthLevel_Called_ExpectSustenanceToCallCorrectMethod()
         {
             var knight = new Knight(sustenance);

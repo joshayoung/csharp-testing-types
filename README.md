@@ -1,12 +1,18 @@
 # Query / Command Testing in C#
 
 ### Query Message: 
-* Return/change something with no side-effects.
+* Return/change something.
+* No side-effects.
 
 ### Command Message: 
-* Do not return anything, but change something with side-effects.
+* Do not return anything, but change something.
+* Has side-effects.
 
 **You can have both a command and a query in one method.**
+
+*Goal:* changing a method's implementation will not cause our tests to break.
+
+*From the sender's perspective, if a method is called and has no side effects - do not test it.*
 
 ---
 
@@ -16,11 +22,12 @@
 * Test the outer interface not how it is implemented.
   * Now we can change how the method is implemented without breaking our test.
     * Only thing that cannot change is the actual return value.
+* By testing only the interface, changing our method's implementation will not break our test.
 
 #### Incoming Command:
 * Here I test for side-effects.
 * These side-effects should be public.
-* They should be direct (the last ruby class involved).
+* They should be direct (the last class involved).
 
 #### Sent-to-Self
 * These a private methods.
@@ -30,6 +37,7 @@
 #### Outgoing Query:
 * Also, do not test.
 * Because this is just an incoming query for another object, that should already be tested elsewhere. 
+* Do not test that they were sent.
 
 #### Outgoing Command:
 * Test that the message was sent.
@@ -83,8 +91,8 @@ public OutgoingQuery()
 
 // Test that this method has been called.
 // This would need to be mocked.
-public void OutgoingCommand(OtherClass otherClass) 
+public void OutgoingCommand(OtherClassMock otherClassMock) 
 {
-  otherClass.DoSomething();
+  otherClassMock.DoSomething();
 }
 ```
