@@ -3,10 +3,14 @@
 ### Query Message: 
 * Return/change something.
 * No side-effects.
+* These are Idempotent.
 
 ### Command Message: 
 * Do not return anything, but change something.
 * Has side-effects.
+* Returns 'nil' in the case of ruby.
+* Returns 'void' in the case of C#
+* Not Idempotent.
 
 **You can have both a command and a query in one method.**
 
@@ -96,3 +100,9 @@ public void OutgoingCommand(OtherClassMock otherClassMock)
   otherClassMock.DoSomething();
 }
 ```
+
+##### Resources:
+* [CommandQuerySeparation](https://martinfowler.com/bliki/CommandQuerySeparation.html)
+* [Katrina Owen - 467 tests, 0 failures, 0 confidence](https://vimeo.com/68730418)
+* [The Magic Tricks of Testing by Sandi Metz](https://www.youtube.com/watch?v=URSWYvyc42M)
+* [Writing Specs like Sandi Metz](https://medium.com/@christiancarey1/writing-specs-like-sandi-metz-9f2acf5026cb)
