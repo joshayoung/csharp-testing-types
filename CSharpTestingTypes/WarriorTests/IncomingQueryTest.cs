@@ -44,15 +44,17 @@ namespace WarriorTests
             result.Should().Be(10);
         }
         
-        // Do not test the internal implementation
-        // Changing the internal implementation will cause the test to fail
-        [Fact (Skip = "This test is bad practise, skipping for that reason.")]
-        public void StrengthLevel_Called_ExpectSustenanceToCallCorrectMethod()
+        [Fact(Skip = "This test is bad practise, skipping for that reason.")]
+        public void StrengthLevel_Called_ExpectSustenanceToCallCorrectMethodAndReturnCorrectValue()
         {
             var knight = new Knight(sustenance);
 
-            knight.StrengthLevel();
+            var result = knight.StrengthLevel();
+            
+            result.Should().Be(10);
 
+            // Do not test the internal implementation
+            // Changing the internal implementation will cause the test to fail
             sustenance.Received().Endurance();
         }
 
