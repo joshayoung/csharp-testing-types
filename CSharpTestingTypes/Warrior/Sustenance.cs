@@ -25,6 +25,11 @@ namespace Warrior
         {
             return EnergyLevel * 10;
         }
+
+        public int GetEnergyLevel()
+        {
+            return EnergyLevel;
+        }
         
         // Private Command Message (do not test):
         private void IncreaseReserveEnergy()
