@@ -102,7 +102,10 @@ public void OutgoingCommand(OtherClassMock otherClassMock)
 ```
 
 ##### Resources:
-* [CommandQuerySeparation](https://martinfowler.com/bliki/CommandQuerySeparation.html)
+* [Command Query Separation](https://martinfowler.com/bliki/CommandQuerySeparation.html)
 * [Katrina Owen - 467 tests, 0 failures, 0 confidence](https://vimeo.com/68730418)
 * [The Magic Tricks of Testing by Sandi Metz](https://www.youtube.com/watch?v=URSWYvyc42M)
 * [Writing Specs like Sandi Metz](https://medium.com/@christiancarey1/writing-specs-like-sandi-metz-9f2acf5026cb)
+* [Testing Objects with a Functional Mindset](https://thoughtbot.com/blog/functional-viewpoints-on-testing-objectoriented-code)
+* [Simplifying Tests by Extracting Side-Effects](https://thoughtbot.com/blog/simplify-tests-by-extracting-side-effects)
+* [About Command & Query Separation and Object-Oriented-Design](https://medium.com/swlh/about-command-query-separation-and-object-oriented-design-c5dd4a5e03fb)
