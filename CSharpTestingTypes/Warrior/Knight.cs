@@ -20,7 +20,7 @@ namespace Warrior
 
         // Incoming Query (no side effects)
         // Test the return value
-        public int StrengthLevel()
+        public int GetStrengthLevel()
         {
             return sustenance.Endurance() + 10;
         }

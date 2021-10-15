@@ -39,7 +39,7 @@ namespace WarriorTests
         {
             var knight = new Knight(sustenance);
 
-            var result = knight.StrengthLevel();
+            var result = knight.GetStrengthLevel();
 
             result.Should().Be(10);
         }
@@ -49,7 +49,7 @@ namespace WarriorTests
         {
             var knight = new Knight(sustenance);
 
-            var result = knight.StrengthLevel();
+            var result = knight.GetStrengthLevel();
             
             result.Should().Be(10);
 
