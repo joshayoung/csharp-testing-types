@@ -79,7 +79,7 @@ private IncomingQueryPrivate() {
 }
 
 // Private, do not test
-public void IncomingCommandPrivate(int value)
+private void IncomingCommandPrivate(int value)
 {
   AnotherValue = value;
 }
