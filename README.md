@@ -101,6 +101,9 @@ public void OutgoingCommand(OtherClassMock otherClassMock)
 }
 ```
 
+##### Notes:
+* The static testing examples are not necessarly complete. They are my current understanding of how to test a static method.
+
 ##### Resources:
 * [Command Query Separation](https://martinfowler.com/bliki/CommandQuerySeparation.html)
 * [Katrina Owen - 467 tests, 0 failures, 0 confidence](https://vimeo.com/68730418)
